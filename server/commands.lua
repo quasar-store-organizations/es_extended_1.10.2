@@ -232,7 +232,7 @@ end, true, {
 	}
 })
 
-if not Config.OxInventory then
+if not Config.OxInventory and not Config.QSInventory then
 	ESX.RegisterCommand('giveitem', 'admin', function(xPlayer, args)
 		args.playerId.addInventoryItem(args.item, args.count)
 		if Config.AdminLogging then
@@ -357,7 +357,7 @@ ESX.RegisterCommand("refreshjobs", 'admin', function()
 	ESX.RefreshJobs()
 end, true, { help = TranslateCap('command_clearall') })
 
-if not Config.OxInventory then
+if not Config.OxInventory and not Config.QSInventory then
 	ESX.RegisterCommand('clearinventory', 'admin', function(xPlayer, args)
 		for _, v in ipairs(args.playerId.inventory) do
 			if v.count > 0 then
